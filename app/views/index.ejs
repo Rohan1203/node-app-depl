@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header{
+            width: 50%;
+            /* height: 30px; */
+            margin: auto;
+            background: #000;
+            margin-top: 100px;
+        }
+
+        table{
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <table border="1" style="width: 100%;">
+              <tr>
+                <th>Serial</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Oganization</th>
+              </tr>
+              <%if (data.length !=0){ var i = 1; data.forEach(function(data){%>
+              <tr>
+                <td><%=i; %></td>
+                <td><%= data.name %></td>
+                <td><%= data.age %></td>
+                <td><%= data.org %></td>
+              </tr>
+              <% i++;})%>
+              <% } else {%>
+                <tr>
+                    <td colspan="4">No Record Found</td>
+                  </tr>
+                <% } %>
+          </table>
+     
+    </div>
+</body>
+</html>
