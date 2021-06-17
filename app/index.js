@@ -5,7 +5,7 @@ var app = express();
 app.set('view engine', 'ejs');
 
 
-var url = "mongodb://admin:root@mongodb";
+var url = "mongodb://mongodb";
 
 app.get('/', (req, res)=>{
     MongoClient.connect(url, function(err, db) {
@@ -19,9 +19,6 @@ app.get('/', (req, res)=>{
     });
     
   });
-
-
-
 
 const port = 3300
 app.listen(port, ()=>{

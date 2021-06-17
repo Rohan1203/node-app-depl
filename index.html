@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+ //function disableSubmit() {
+  document.getElementById("submit").disabled = true;
+ //}
+
+  function activateButton(element) {
+
+      if(element.checked) {
+        document.getElementById("submit").disabled = false;
+       }
+       else  {
+        document.getElementById("submit").disabled = true;
+      }
+
+  }
+
+  function confirmation(){
+      if(document.getElementById("submit").disabled = false){
+          alert("Form Sbmitted...!");
+      }
+  }
+</script>
+</head>
+
+<body onload="disableSubmit()">
+ <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I Agree Terms & Coditions
+<br><br>
+  <input type="submit" name="submit" id="submit">
+
+  <a href="http://facebook.com/" disabled="true">Visit Facebook</a><br /> <br />    
+ <input type="button" id="btnEnableDisable" value="Disable" onclick="confirmation()" />    
+</body>
+</html>

@@ -1,0 +1,31 @@
+version: '3'
+services: 
+# Pulling the the image node-app
+    my-app: 
+        image: "node-app"
+        build: .
+        command: "node index.js"
+        ports: 
+            - "3300:3300"
+        depends_on: 
+            - "mongodb"
+    mongodb:
+        image: "mongo"
+        ports: 
+            - "27017:27017"
+        environment: 
+            MONGO_INITDB_ROOT_USERNAME: "root"
+            MONGO_INITDB_ROOT_PASSWORD: "root"
+    mongo-express:
+        image: "mongo-express"
+        ports: 
+            - "8081:8081"
+        environment: 
+            ME_CONFIG_MONGODB_SERVER: "mongodb"
+            ME_CONFIG_MONGODB_ADMINUSERNAME: "root"
+            ME_CONFIG_MONGODB_ADMINPASSWORD: "root"
+            ME_CONFIG_MONGODB_PORT: "27017"
+            ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+            ME_CONFIG_MONGODB_AUTH_DATABASE: "admin"
+
+#db.createUser({user:"admin", pwd:"root", roles:[{role:"readWrite", db:"user-account"}]});
